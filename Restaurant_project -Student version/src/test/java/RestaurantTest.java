@@ -76,4 +76,17 @@ class RestaurantTest {
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
+    //<<<<<<<<<<<<<<<<<<<<<<<CALCULATE ORDER TOTAL>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    // order total should be calculated based on items selected
+    // the list of selected items will be passed as a parameter
+    // the total amount will be returned
+    @Test
+    public void order_total_should_be_calculated_for_the_list_of_items_passed(){
+        List selectedItems = new ArrayList<String>();
+        selectedItems.add("Sweet corn soup");
+        selectedItems.add("Vegetable lasagne");
+        Double orderTotal = restaurant.calculateOrderTotal(selectedItems);
+        assertNotNull(orderTotal);
+    }
+    //<<<<<<<<<<<<<<<<<<<<<<<CALCULATE ORDER TOTAL>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 }
