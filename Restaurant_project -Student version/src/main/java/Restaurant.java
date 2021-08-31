@@ -2,6 +2,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Restaurant {
     private String name;
@@ -64,4 +65,16 @@ public class Restaurant {
         return name;
     }
 
+    public float calculateOrderTotal(List<String> items){
+        float orderTotal = 0.0f;
+
+        // find the list of selected Menu Items
+        List<Item> selectedItems = this.getMenu().stream().filter(item -> items.contains(item.getName())).collect(Collectors.toList());
+
+        // calculate the total amount
+        for (Item selectedItem : selectedItems) {
+            orderTotal += selectedItem.getPrice();
+        }
+        return orderTotal;
+    }
 }

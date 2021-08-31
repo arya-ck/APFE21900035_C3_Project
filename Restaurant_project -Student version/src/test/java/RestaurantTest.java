@@ -85,8 +85,11 @@ class RestaurantTest {
         List selectedItems = new ArrayList<String>();
         selectedItems.add("Sweet corn soup");
         selectedItems.add("Vegetable lasagne");
-        Double orderTotal = restaurant.calculateOrderTotal(selectedItems);
-        assertNotNull(orderTotal);
+        float expectedOrderTotal = 388.0f;
+
+        float actualOrderTotal = restaurant.calculateOrderTotal(selectedItems);
+
+        assertEquals(expectedOrderTotal, actualOrderTotal);
     }
     //<<<<<<<<<<<<<<<<<<<<<<<CALCULATE ORDER TOTAL>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 }
